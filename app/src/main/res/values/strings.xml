@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PlantManager</string>
+    <string name="welcome_app_title">Gerencie\nsuas plantas de\nforma fácil</string>
+    <string name="welcome_app_description">Não esqueça mais de regar suas\nplantas. Nós cuidamos de lembrar você\nsempre que precisar.</string>
 </resources>
