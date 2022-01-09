@@ -4,4 +4,8 @@
     <string name="welcome_app_description">Não esqueça mais de regar suas\nplantas. Nós cuidamos de lembrar você\nsempre que precisar.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="happy_emoji">😃</string>
+    <string name="what_is_your_name">Como podemos\nchamar você?</string>
+    <string name="enter_name">Digite um nome</string>
+    <string name="confirm">Confirmar</string>
 </resources>

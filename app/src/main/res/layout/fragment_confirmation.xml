@@ -1,14 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingVertical="48dp"
+    android:paddingHorizontal="32dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".ConfirmationFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/txt_emoji"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        android:text="@string/happy_emoji" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_green"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:text="@string/what_is_your_name" />
+
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textSize="17sp"
+        android:inputType="textCapWords"
+        android:fontFamily="@font/jost"
+        android:textAlignment="center"
+        android:hint="@string/enter_name"
+        android:autofillHints="username" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_marginTop="32dp"
+        app:backgroundTint="@null"
+        android:text="@string/confirm"
+        android:layout_marginHorizontal="48dp"
+        style="@style/PlantManagerButtonStyle" />
+
+</LinearLayout>
