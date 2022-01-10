@@ -10,11 +10,19 @@
         android:id="@+id/welcomeFragment"
         android:name="br.com.rocketseat.nextlevelweek.plantmanager.WelcomeFragment">
         <action
-            android:id="@+id/action_welcomeFragment_to_confirmationFragment"
-            app:destination="@id/confirmationFragment" />
+            android:id="@+id/action_welcomeFragment_to_userAuthFragment"
+            app:destination="@id/userAuthFragment" />
     </fragment>
     <fragment
-        android:id="@+id/confirmationFragment"
-        android:name="br.com.rocketseat.nextlevelweek.plantmanager.ConfirmationFragment"
-        tools:layout="@layout/fragment_confirmation" />
+        android:id="@+id/readyToStartFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.ReadyToStartFragment"
+        tools:layout="@layout/fragment_ready_to_start" />
+    <fragment
+        android:id="@+id/userAuthFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.UserAuthFragment"
+        tools:layout="@layout/fragment_user_auth">
+        <action
+            android:id="@+id/action_userAuthFragment_to_readyToStartFragment"
+            app:destination="@id/readyToStartFragment" />
+    </fragment>
 </navigation>

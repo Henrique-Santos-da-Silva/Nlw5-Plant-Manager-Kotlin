@@ -8,28 +8,35 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
-import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentConfirmationBinding
+import androidx.navigation.fragment.findNavController
+import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentUserAuthBinding
 
-class ConfirmationFragment : Fragment() {
-    private var _binding: FragmentConfirmationBinding? = null
-    private val binding: FragmentConfirmationBinding? get() = _binding
+class UserAuthFragment : Fragment() {
+    private var _binding: FragmentUserAuthBinding? = null
+    private val binding: FragmentUserAuthBinding? get() = _binding
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = FragmentConfirmationBinding.inflate(inflater, container, false)
+        _binding = FragmentUserAuthBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.let { confirmationBinding ->
-            confirmationValidation(confirmationBinding.btnConfirm, confirmationBinding.edtName)
+        binding?.let { userAuthBinding ->
+            userAuthValidation(userAuthBinding.btnConfirm, userAuthBinding.edtName, userAuthBinding.txtEmoji)
+
+            userAuthBinding.btnConfirm.setOnClickListener {
+                hideSoftKeyboard()
+                findNavController().navigate(R.id.action_userAuthFragment_to_readyToStartFragment)
+            }
         }
     }
 
-    private fun confirmationValidation(confirmButton: Button, editTextName: EditText) {
+    private fun userAuthValidation(confirmButton: Button, editTextName: EditText, emoji: TextView) {
         confirmButton.apply {
             alpha = 0.5f
             isEnabled = false
@@ -40,11 +47,13 @@ class ConfirmationFragment : Fragment() {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 if (s.isNotEmpty() && s.length >= 3) {
+                    emoji.text = getString(R.string.happy_emoji_close_eyes)
                     confirmButton.apply {
                         alpha = 1f
                         isEnabled = true
                     }
                 } else {
+                    emoji.text = getString(R.string.happy_emoji_open_eyes)
                     confirmButton.apply {
                         alpha = 0.5f
                         isEnabled = false

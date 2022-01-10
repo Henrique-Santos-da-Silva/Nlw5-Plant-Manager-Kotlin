@@ -21,7 +21,7 @@ class WelcomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.btnNextScreen?.setOnClickListener {
-            findNavController().navigate(R.id.action_welcomeFragment_to_confirmationFragment)
+            findNavController().navigate(R.id.action_welcomeFragment_to_userAuthFragment)
         }
     }
 }
