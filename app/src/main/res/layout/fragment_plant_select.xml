@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingVertical="32dp"
+    android:paddingHorizontal="16dp"
+    tools:context=".PlantSelectFragment">
+
+    <include android:id="@+id/greeting_header" layout="@layout/greeting_header" />
+
+    <TextView
+        android:text="@string/choice_place_your_plant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:clipToPadding="false"
+        android:paddingVertical="12dp"
+        android:scrollbars="none"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_house_rooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </HorizontalScrollView>
+</LinearLayout>

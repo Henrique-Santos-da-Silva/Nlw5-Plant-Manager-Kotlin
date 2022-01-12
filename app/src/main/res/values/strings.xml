@@ -12,4 +12,6 @@
     <string name="ready">Prontinho</string>
     <string name="ready_description">Agora vamos começar a cuidar das suas\nplantinhas com muito cuidado.</string>
     <string name="start">Começar</string>
+    <string name="greeting_user">Olá,\n<b>%1$s</b></string>
+    <string name="choice_place_your_plant"><b>Em qual hambiente</b>\nvocê quer colocar sua planta?</string>
 </resources>

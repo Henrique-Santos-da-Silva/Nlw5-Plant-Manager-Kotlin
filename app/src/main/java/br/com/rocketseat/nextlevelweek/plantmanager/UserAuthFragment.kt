@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentUserAuthBinding
 
@@ -26,14 +27,24 @@ class UserAuthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding?.let { userAuthBinding ->
             userAuthValidation(userAuthBinding.btnConfirm, userAuthBinding.edtName, userAuthBinding.txtEmoji)
 
             userAuthBinding.btnConfirm.setOnClickListener {
+                val inputUserName: String = userAuthBinding.edtName.text.toString()
+
+                val actionUserAuthToPlantSelect: NavDirections = UserAuthFragmentDirections.actionUserAuthFragmentToReadyToStartFragment(inputUserName)
+
                 hideSoftKeyboard()
-                findNavController().navigate(R.id.action_userAuthFragment_to_readyToStartFragment)
+                findNavController().navigate(actionUserAuthToPlantSelect)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideSoftKeyboard()
     }
 
     private fun userAuthValidation(confirmButton: Button, editTextName: EditText, emoji: TextView) {
