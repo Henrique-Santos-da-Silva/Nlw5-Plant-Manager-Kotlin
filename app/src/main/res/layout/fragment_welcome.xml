@@ -7,7 +7,7 @@
     android:padding="20dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".views.MainActivity">
 
 
     <TextView

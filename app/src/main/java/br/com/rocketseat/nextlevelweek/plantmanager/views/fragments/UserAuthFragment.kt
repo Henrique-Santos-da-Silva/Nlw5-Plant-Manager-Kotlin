@@ -1,4 +1,4 @@
-package br.com.rocketseat.nextlevelweek.plantmanager
+package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
 import android.os.Bundle
 import android.text.Editable
@@ -12,7 +12,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentUserAuthBinding
+import br.com.rocketseat.nextlevelweek.plantmanager.hideSoftKeyboard
 
 class UserAuthFragment : Fragment() {
     private var _binding: FragmentUserAuthBinding? = null

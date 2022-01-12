@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:paddingVertical="32dp"
     android:paddingHorizontal="16dp"
-    tools:context=".PlantSelectFragment">
+    tools:context=".views.fragments.PlantSelectFragment">
 
     <include android:id="@+id/greeting_header" layout="@layout/greeting_header" />
 

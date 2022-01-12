@@ -8,14 +8,14 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="br.com.rocketseat.nextlevelweek.plantmanager.WelcomeFragment">
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.WelcomeFragment">
         <action
             android:id="@+id/action_welcomeFragment_to_userAuthFragment"
             app:destination="@id/userAuthFragment" />
     </fragment>
     <fragment
         android:id="@+id/userAuthFragment"
-        android:name="br.com.rocketseat.nextlevelweek.plantmanager.UserAuthFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.UserAuthFragment"
         tools:layout="@layout/fragment_user_auth">
         <action
             android:id="@+id/action_userAuthFragment_to_readyToStartFragment"
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/readyToStartFragment"
-        android:name="br.com.rocketseat.nextlevelweek.plantmanager.ReadyToStartFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.ReadyToStartFragment"
         tools:layout="@layout/fragment_ready_to_start" >
         <action
             android:id="@+id/action_readyToStartFragment_to_plantSelectFragment"
@@ -38,7 +38,7 @@
 
     <fragment
         android:id="@+id/plantSelectFragment"
-        android:name="br.com.rocketseat.nextlevelweek.plantmanager.PlantSelectFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.PlantSelectFragment"
         tools:layout="@layout/fragment_plant_select" >
         <argument
             android:name="userNameArgs"

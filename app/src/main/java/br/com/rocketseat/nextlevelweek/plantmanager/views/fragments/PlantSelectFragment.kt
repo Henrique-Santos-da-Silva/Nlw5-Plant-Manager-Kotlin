@@ -1,4 +1,4 @@
-package br.com.rocketseat.nextlevelweek.plantmanager
+package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentPlantSelectBinding
 
 class PlantSelectFragment : Fragment() {

@@ -1,4 +1,4 @@
-package br.com.rocketseat.nextlevelweek.plantmanager
+package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
