@@ -5,15 +5,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentPlantSelectBinding
 import br.com.rocketseat.nextlevelweek.plantmanager.utils.Resource
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantViewModel
+import br.com.rocketseat.nextlevelweek.plantmanager.views.adapters.PlantSelectAdapter
 import com.google.android.material.chip.Chip
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
@@ -24,6 +28,7 @@ class PlantSelectFragment : Fragment() {
 
     private var _binding: FragmentPlantSelectBinding? = null
     private val binding: FragmentPlantSelectBinding? get() = _binding
+    private val plantAdapter: PlantSelectAdapter = PlantSelectAdapter()
 
     private val plantSelectArgs: PlantSelectFragmentArgs by navArgs()
 
@@ -48,6 +53,9 @@ class PlantSelectFragment : Fragment() {
         binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, userName)
 
 
+        binding?.rvPlantSelect?.layoutManager = StaggeredGridLayoutManager(2, LinearLayout.VERTICAL)
+        binding?.rvPlantSelect?.adapter = plantAdapter
+
         plantViewModel.listHomeRooms.observe(viewLifecycleOwner, Observer { response ->
             when (response) {
                 is Resource.Success -> {
@@ -70,20 +78,43 @@ class PlantSelectFragment : Fragment() {
         })
 
         plantViewModel.listPlants.observe(viewLifecycleOwner, Observer { response ->
-            if (response.isSuccessful) {
-                Log.d("TAG", "BBBBBBBBBBBBBBBBBBBBBBBB>>>>>>>>>>>>>>> ${response.body()}")
-            } else {
-                Log.d("TAG", "BBBBBBBBBBBBBBBBBBBBBBBB>>>>>>>>>>>>>>> ${response.errorBody()} >>>>>>>>>>>> ${response.message()}")
+            when(response) {
+                is Resource.Success -> {
+                    response.data?.let { plantList ->
+                        plantAdapter.submitList(plantList)
+                    }
+                }
+                is Resource.Error -> {
+                    response.message?.let { message ->
+                        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                is Resource.Loading -> {}
             }
         })
 
     }
 
     private fun addChip(text: String) {
-        val chip = Chip(requireContext())
+        val chip = layoutInflater.inflate(R.layout.home_rooms_chip_choice_filter, null, false) as Chip
         chip.text = text
-
         chip.isCloseIconVisible = false
+
+//        chip.layout = LayoutInflater.from(requireContext()).inflate(R.layout.home_rooms_chip_choice_filter, null, false) as Chip
+
+//        chip.setOnClickListener {
+//            if (chip.isChecked) {
+//                chip.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
+//                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.dark_green))
+//            } else {
+//                chip.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.darker_gray))
+//                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+//            }
+//        }
+
+
+//        chip.setBackgroundColor()
 
         binding?.chipGroupHouseRooms?.addView(chip)
     }

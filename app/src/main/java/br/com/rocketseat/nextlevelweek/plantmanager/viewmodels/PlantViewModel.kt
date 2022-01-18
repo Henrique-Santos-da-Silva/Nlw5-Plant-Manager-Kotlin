@@ -13,13 +13,13 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class PlantViewModel @Inject constructor(private val plantRepository: PlantManagerRepository): ViewModel() {
+class PlantViewModel @Inject constructor(private val plantRepository: PlantManagerRepository) : ViewModel() {
 
     private val _listHomeRooms = MutableLiveData<Resource<List<PlantKeyValue>>>()
-
-     val listPlants = MutableLiveData<Response<List<Plant>>>()
-
     val listHomeRooms: MutableLiveData<Resource<List<PlantKeyValue>>> get() = _listHomeRooms
+
+    val listPlants = MutableLiveData<Resource<List<Plant>>>()
+
 
     init {
         getPlantsEnvironment()
@@ -35,15 +35,26 @@ class PlantViewModel @Inject constructor(private val plantRepository: PlantManag
 
     fun getPlants() {
         viewModelScope.launch {
+            listPlants.postValue(Resource.Loading())
             val plantResponse = plantRepository.getPlants()
-            listPlants.postValue(plantResponse)
+            listPlants.postValue(handlePlantsResponse(plantResponse))
         }
+    }
+
+    private fun handlePlantsResponse(response: Response<List<Plant>>): Resource<List<Plant>> {
+        if (response.isSuccessful) {
+            response.body()?.let { plant ->
+                return Resource.Success(plant)
+            }
+        }
+
+        return Resource.Error(response.message())
     }
 
     private fun handlePlantsEnvironmentResponse(response: Response<List<PlantKeyValue>>): Resource<List<PlantKeyValue>> {
         if (response.isSuccessful) {
             response.body()?.let { plantResultResponse ->
-              return Resource.Success(plantResultResponse)
+                return Resource.Success(plantResultResponse)
             }
         }
 

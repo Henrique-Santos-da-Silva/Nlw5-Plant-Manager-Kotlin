@@ -3,28 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingVertical="32dp"
     android:paddingHorizontal="16dp"
+    android:paddingVertical="32dp"
     tools:context=".views.fragments.PlantSelectFragment">
 
-    <include android:id="@+id/greeting_header" layout="@layout/greeting_header" />
+    <include
+        android:id="@+id/greeting_header"
+        layout="@layout/greeting_header" />
 
     <TextView
-        android:text="@string/choice_place_your_plant"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/choice_place_your_plant" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:clipToPadding="false"
         android:paddingVertical="12dp"
-        android:scrollbars="none"
-        android:layout_height="wrap_content">
+        android:scrollbars="none">
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chip_group_house_rooms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </HorizontalScrollView>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="16dp"
+        android:layout_marginTop="16dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_plant_select"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+            tools:spanCount="2"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_plant" />
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>
