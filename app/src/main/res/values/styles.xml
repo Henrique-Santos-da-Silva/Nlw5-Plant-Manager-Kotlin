@@ -23,6 +23,12 @@
         <item name="android:background">@drawable/bg_app_buttons</item>
     </style>
 
+    <style name="PlantManagerTabLayoutTextAppearance" parent="Widget.Design.TabLayout">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="fontFamily">@font/jost</item>
+    </style>
+
     <style name="user_profile_avatar_rounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

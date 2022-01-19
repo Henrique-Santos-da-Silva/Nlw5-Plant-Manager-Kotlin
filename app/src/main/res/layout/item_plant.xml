@@ -23,7 +23,8 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:scaleType="centerCrop"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="@string/plant_image_content_description" />
 
         <TextView
             android:id="@+id/txt_plant_name"
