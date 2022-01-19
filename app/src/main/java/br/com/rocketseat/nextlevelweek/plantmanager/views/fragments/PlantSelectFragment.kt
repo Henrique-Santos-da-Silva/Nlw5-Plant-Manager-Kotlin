@@ -38,7 +38,7 @@ class PlantSelectFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tabLayoutSetup()
+//        tabLayoutSetup()
         plantViewModel.getPlants()
     }
 
@@ -121,16 +121,16 @@ class PlantSelectFragment : Fragment() {
         binding?.chipGroupHouseRooms?.addView(chip)
     }
 
-    private fun tabLayoutSetup() {
-        val tabLayout: TabLayout = binding?.tabLayoutMenu?.tblMenu as TabLayout
-        val viewPager: ViewPager2 = binding?.tabLayoutMenu?.viewPagerMenu as ViewPager2
-        val tabLayoutAdapter = PlantTabLayoutAdapter(this)
-
-        viewPager.adapter = tabLayoutAdapter
-        viewPager.isUserInputEnabled = false
-
-        TabLayoutMediator(tabLayout, viewPager) {tab, position ->
-            tab.text = getString(tabLayoutAdapter.tabsNames[position])
-        }.attach()
-    }
+//    private fun tabLayoutSetup() {
+//        val tabLayout: TabLayout = binding?.tabLayoutMenu?.tblMenu as TabLayout
+//        val viewPager: ViewPager2 = binding?.tabLayoutMenu?.viewPagerMenu as ViewPager2
+//        val tabLayoutAdapter = PlantTabLayoutAdapter(this)
+//
+//        viewPager.adapter = tabLayoutAdapter
+//        viewPager.isUserInputEnabled = false
+//
+//        TabLayoutMediator(tabLayout, viewPager) {tab, position ->
+//            tab.text = getString(tabLayoutAdapter.tabsNames[position])
+//        }.attach()
+//    }
 }

@@ -1,9 +1,15 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.di
 
+import android.content.Context
+import androidx.room.Room
 import br.com.rocketseat.nextlevelweek.plantmanager.api.PlantApi
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.UserDao
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.UserDatabase
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.PlantManagerRepository
+import br.com.rocketseat.nextlevelweek.plantmanager.repositories.UserDbRepository
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,5 +55,22 @@ object PlantManagerModule {
     @Singleton
     @Provides
     fun providesRepository(apiService: PlantApi): PlantManagerRepository = PlantManagerRepository(apiService)
+
+    @Singleton
+    @Provides
+    fun providerRoomDatabase(@ApplicationContext context: Context): UserDatabase =
+        Room.databaseBuilder(
+            context,
+            UserDatabase::class.java,
+            "users_db.db"
+        ).build()
+
+    @Singleton
+    @Provides
+    fun providerUserDao(userDatabase: UserDatabase): UserDao = userDatabase.userDao()
+
+    @Singleton
+    @Provides
+    fun providerUserDbRepository(userDao: UserDao): UserDbRepository = UserDbRepository(userDao)
 
 }

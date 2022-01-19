@@ -51,6 +51,7 @@ dependencies {
     def lifecycle_version = "2.4.0"
     def dagger_hilt_version = "2.40.1"
     def glide_to_vector_version = "v2.0.0"
+    def room_version = "2.3.0"
 
 
     implementation "androidx.core:core-ktx:$core_ktx"
@@ -73,6 +74,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
 
     // Glide
     implementation "com.github.bumptech.glide:glide:$glide_version"
