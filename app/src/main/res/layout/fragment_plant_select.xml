@@ -6,12 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="32dp"
+    android:paddingVertical="8dp"
     tools:context=".views.fragments.PlantSelectFragment">
-
-    <include
-        android:id="@+id/greeting_header"
-        layout="@layout/greeting_header" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -34,9 +30,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="16dp"
-        android:layout_marginTop="16dp">
+        android:paddingHorizontal="8dp"
+        android:layout_marginTop="8dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_plant_select"

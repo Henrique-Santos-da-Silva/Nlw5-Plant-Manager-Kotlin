@@ -20,28 +20,18 @@
         <action
             android:id="@+id/action_userAuthFragment_to_readyToStartFragment"
             app:destination="@id/readyToStartFragment" />
-        <action
-            android:id="@+id/action_userAuthFragment_to_plantSelectFragment"
-            app:destination="@id/plantSelectFragment" />
     </fragment>
     <fragment
         android:id="@+id/readyToStartFragment"
         android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.ReadyToStartFragment"
         tools:layout="@layout/fragment_ready_to_start" >
         <action
-            android:id="@+id/action_readyToStartFragment_to_plantSelectFragment"
-            app:destination="@id/plantSelectFragment" />
-        <argument
-            android:name="userNameArgs2"
-            app:argType="string" />
+            android:id="@+id/action_readyToStartFragment_to_plantManagerTabLayoutFragment"
+            app:destination="@id/plantManagerTabLayoutFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/plantSelectFragment"
-        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.PlantSelectFragment"
-        tools:layout="@layout/fragment_plant_select" >
-        <argument
-            android:name="userNameArgs"
-            app:argType="string" />
-    </fragment>
+        android:id="@+id/plantManagerTabLayoutFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.PlantManagerTabLayoutFragment"
+        tools:layout="@layout/fragment_plant_manager_tab_layout" />
+
 </navigation>

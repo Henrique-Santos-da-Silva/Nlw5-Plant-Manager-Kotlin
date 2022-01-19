@@ -8,14 +8,17 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentPlantSelectBinding
+import br.com.rocketseat.nextlevelweek.plantmanager.models.User
 import br.com.rocketseat.nextlevelweek.plantmanager.utils.Resource
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantViewModel
+import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.UserViewModel
 import br.com.rocketseat.nextlevelweek.plantmanager.views.adapters.PlantSelectAdapter
 import br.com.rocketseat.nextlevelweek.plantmanager.views.adapters.PlantTabLayoutAdapter
 import com.google.android.material.chip.Chip
@@ -32,9 +35,11 @@ class PlantSelectFragment : Fragment() {
     private val binding: FragmentPlantSelectBinding? get() = _binding
     private val plantAdapter: PlantSelectAdapter = PlantSelectAdapter()
 
-    private val plantSelectArgs: PlantSelectFragmentArgs by navArgs()
+//    private val plantSelectArgs: PlantSelectFragmentArgs by navArgs()
 
     private val plantViewModel: PlantViewModel by viewModels()
+
+//    private val userViewModel: UserViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,9 +55,15 @@ class PlantSelectFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val userName: String = plantSelectArgs.userNameArgs
+//        val userName: String = plantSelectArgs.userNameArgs
 
-        binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, userName)
+//        val lastUserRecord: LiveData<User> = userViewModel.getLastUserRecord()
+//
+//        lastUserRecord.observe(viewLifecycleOwner, Observer { user ->
+//            binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, user.userName)
+//        })
+
+//        binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, userName)
 
 
         binding?.rvPlantSelect?.layoutManager = StaggeredGridLayoutManager(2, LinearLayout.VERTICAL)
@@ -121,16 +132,5 @@ class PlantSelectFragment : Fragment() {
         binding?.chipGroupHouseRooms?.addView(chip)
     }
 
-//    private fun tabLayoutSetup() {
-//        val tabLayout: TabLayout = binding?.tabLayoutMenu?.tblMenu as TabLayout
-//        val viewPager: ViewPager2 = binding?.tabLayoutMenu?.viewPagerMenu as ViewPager2
-//        val tabLayoutAdapter = PlantTabLayoutAdapter(this)
-//
-//        viewPager.adapter = tabLayoutAdapter
-//        viewPager.isUserInputEnabled = false
-//
-//        TabLayoutMediator(tabLayout, viewPager) {tab, position ->
-//            tab.text = getString(tabLayoutAdapter.tabsNames[position])
-//        }.attach()
-//    }
+
 }

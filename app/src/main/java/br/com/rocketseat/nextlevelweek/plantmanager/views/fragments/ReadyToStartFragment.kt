@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentReadyToStartBinding
 
 class ReadyToStartFragment : Fragment() {
     private var _binding: FragmentReadyToStartBinding? = null
     private val binding: FragmentReadyToStartBinding? get() = _binding
 
-    private val readyToStartNav: ReadyToStartFragmentArgs by navArgs()
+//    private val readyToStartNav: ReadyToStartFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentReadyToStartBinding.inflate(inflater, container, false)
@@ -25,10 +26,10 @@ class ReadyToStartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.btnStart?.setOnClickListener {
-            val userName: String = readyToStartNav.userNameArgs2
-            val actionReadyToStartToPlantSelect: NavDirections = ReadyToStartFragmentDirections.actionReadyToStartFragmentToPlantSelectFragment(userName)
-            findNavController().navigate(actionReadyToStartToPlantSelect)
-//            findNavController().navigate(R.id.action_readyToStartFragment_to_plantSelectFragment)
+//            val userName: String = readyToStartNav.userNameArgs2
+//            val actionReadyToStartToPlantSelect: NavDirections = ReadyToStartFragmentDirections.actionReadyToStartFragmentToPlantSelectFragment(userName)
+//            findNavController().navigate(actionReadyToStartToPlantSelect)
+            findNavController().navigate(R.id.action_readyToStartFragment_to_plantManagerTabLayoutFragment)
         }
     }
 }

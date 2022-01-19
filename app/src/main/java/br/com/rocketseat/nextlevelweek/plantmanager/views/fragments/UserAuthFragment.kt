@@ -10,16 +10,24 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentUserAuthBinding
 import br.com.rocketseat.nextlevelweek.plantmanager.hideSoftKeyboard
+import br.com.rocketseat.nextlevelweek.plantmanager.models.User
+import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.UserViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.scopes.FragmentScoped
 
+@AndroidEntryPoint
+@FragmentScoped
 class UserAuthFragment : Fragment() {
     private var _binding: FragmentUserAuthBinding? = null
     private val binding: FragmentUserAuthBinding? get() = _binding
 
+    private val userViewModel: UserViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentUserAuthBinding.inflate(inflater, container, false)
@@ -36,10 +44,15 @@ class UserAuthFragment : Fragment() {
             userAuthBinding.btnConfirm.setOnClickListener {
                 val inputUserName: String = userAuthBinding.edtName.text.toString()
 
-                val actionUserAuthToPlantSelect: NavDirections = UserAuthFragmentDirections.actionUserAuthFragmentToReadyToStartFragment(inputUserName)
+                val userName = User(null, inputUserName)
+
+                userViewModel.insertUser(userName)
+
+//                val actionUserAuthToPlantSelect: NavDirections = UserAuthFragmentDirections.actionUserAuthFragmentToReadyToStartFragment(inputUserName)
 
                 hideSoftKeyboard()
-                findNavController().navigate(actionUserAuthToPlantSelect)
+//                findNavController().navigate(actionUserAuthToPlantSelect)
+                findNavController().navigate(R.id.action_userAuthFragment_to_readyToStartFragment)
             }
         }
     }

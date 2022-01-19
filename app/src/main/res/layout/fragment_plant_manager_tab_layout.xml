@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    tools:context=".views.fragments.PlantManagerTabLayoutFragment">
+
+    <include
+        android:id="@+id/greeting_header"
+        layout="@layout/greeting_header" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_menu"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tbl_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/green"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="1dp"
+        app:tabMode="auto"
+        app:tabSelectedTextColor="@color/green"
+        app:tabTextAppearance="@style/PlantManagerTabLayoutTextAppearance"
+        app:tabTextColor="@color/grey_200" />
+
+</LinearLayout>
