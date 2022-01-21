@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    app:cardBackgroundColor="@color/light_blue_2"
+    app:cardCornerRadius="16dp"
+    app:layout_constraintBottom_toBottomOf="@id/view_header_background"
+    app:layout_constraintTop_toBottomOf="@id/view_header_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:scaleType="center"
+            android:src="@drawable/waterdrop" />
+
+        <TextView
+            android:id="@+id/txt_water_tips"
+            style="@style/PlantManagerTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_blue"
+            tools:text="A rega deve ser feita com\n400ml a cada dois dias" />
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

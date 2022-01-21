@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="32dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.fragments.PlantSaveFragment">
+
+        <View
+            android:id="@+id/view_header_background"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="@color/grey_200"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/img_plant_detail"
+            android:layout_width="156dp"
+            android:layout_height="176dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@null"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txt_plant_name"
+            style="@style/PlantManagerTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_plant_detail"
+            tools:text="Peperomia" />
+
+        <TextView
+            android:id="@+id/txt_plant_about"
+            style="@style/PlantManagerTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="16dp"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_plant_name"
+            tools:text="Não pode pegar sol e deve ficar em temperatura ambiente, dentro de casa." />
+
+        <include
+            android:id="@+id/card_water_tips"
+            layout="@layout/card_water_tips"
+            app:layout_constraintBottom_toTopOf="@id/view_header_background"
+            app:layout_constraintTop_toTopOf="@id/view_header_background" />
+
+        <TextView
+            android:id="@+id/txt_choice_best_time"
+            style="@style/PlantManagerTextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/choice_best_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_water_tips" />
+
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:headerBackground="@color/light_gray"
+            android:numbersSelectorColor="@color/green"
+            android:timePickerMode="spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_choice_best_time" />
+
+        <Button
+            style="@style/PlantManagerButtonStyle"
+            android:text="@string/register_plant"
+            android:layout_marginBottom="16dp"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_picker" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
+

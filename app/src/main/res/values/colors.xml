@@ -7,4 +7,8 @@
     <color name="dark_green">#52665A</color>
     <color name="dark_green2">#5C6660</color>
     <color name="grey_200">#E0E0E0</color>
+
+    <color name="dark_blue">#3D7199</color>
+    <color name="light_blue">#5DADEC</color>
+    <color name="light_blue_2">#D6EDFF</color>
 </resources>

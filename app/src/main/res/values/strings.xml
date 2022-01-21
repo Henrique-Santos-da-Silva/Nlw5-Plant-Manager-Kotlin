@@ -17,4 +17,6 @@
     <string name="plant_image_content_description">Plant Image</string>
     <string name="save_new_plant">Nova Planta</string>
     <string name="my_plants">Minhas Plantinhas</string>
+    <string name="choice_best_time">Escolha o melhor horário para ser lembrado:</string>
+    <string name="register_plant">Cadastrar planta</string>
 </resources>

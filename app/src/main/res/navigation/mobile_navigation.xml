@@ -32,6 +32,21 @@
     <fragment
         android:id="@+id/plantManagerTabLayoutFragment"
         android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.PlantManagerTabLayoutFragment"
-        tools:layout="@layout/fragment_plant_manager_tab_layout" />
+        tools:layout="@layout/fragment_plant_manager_tab_layout" >
+        <action
+            android:id="@+id/action_plantManagerTabLayoutFragment_to_plantSaveFragment"
+            app:destination="@id/plantSaveFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/plantSaveFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.PlantSaveFragment"
+        tools:layout="@layout/fragment_plant_save" >
+        <action
+            android:id="@+id/action_plantSaveFragment_to_plantManagerTabLayoutFragment"
+            app:destination="@id/plantManagerTabLayoutFragment" />
+        <argument
+            android:name="plantModel"
+            app:argType="br.com.rocketseat.nextlevelweek.plantmanager.models.Plant" />
+    </fragment>
 
 </navigation>
