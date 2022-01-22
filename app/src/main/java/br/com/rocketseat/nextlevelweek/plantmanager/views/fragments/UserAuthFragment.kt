@@ -9,12 +9,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentUserAuthBinding
+import br.com.rocketseat.nextlevelweek.plantmanager.hideBackButtonToBar
 import br.com.rocketseat.nextlevelweek.plantmanager.hideSoftKeyboard
 import br.com.rocketseat.nextlevelweek.plantmanager.models.User
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.UserViewModel
@@ -28,6 +30,11 @@ class UserAuthFragment : Fragment() {
     private val binding: FragmentUserAuthBinding? get() = _binding
 
     private val userViewModel: UserViewModel by viewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (activity as AppCompatActivity).hideBackButtonToBar()
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentUserAuthBinding.inflate(inflater, container, false)

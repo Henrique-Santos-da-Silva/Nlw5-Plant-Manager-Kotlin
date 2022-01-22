@@ -10,7 +10,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: User): Long
 
-    @Query("SELECT * FROM users ORDER BY userName ASC LIMIT 1")
+    @Query("SELECT * FROM users ORDER BY id DESC LIMIT 1")
     fun getLastUserRecord(): LiveData<User>
 
     @Delete

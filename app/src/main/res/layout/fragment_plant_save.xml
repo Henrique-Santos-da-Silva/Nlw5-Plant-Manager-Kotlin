@@ -4,18 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginBottom="32dp"
+    android:layout_marginTop="48dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".views.fragments.PlantSaveFragment">
 
         <View
             android:id="@+id/view_header_background"
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="375dp"
             android:background="@color/grey_200"
             app:layout_constraintTop_toTopOf="parent" />
 
