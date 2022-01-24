@@ -1,7 +1,7 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.repositories
 
 import androidx.lifecycle.LiveData
-import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.UserDao
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.userdb.UserDao
 import br.com.rocketseat.nextlevelweek.plantmanager.models.User
 import javax.inject.Inject
 

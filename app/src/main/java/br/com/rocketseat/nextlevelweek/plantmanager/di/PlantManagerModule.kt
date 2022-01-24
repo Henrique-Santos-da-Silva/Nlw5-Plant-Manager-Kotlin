@@ -3,8 +3,11 @@ package br.com.rocketseat.nextlevelweek.plantmanager.di
 import android.content.Context
 import androidx.room.Room
 import br.com.rocketseat.nextlevelweek.plantmanager.api.PlantApi
-import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.UserDao
-import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.UserDatabase
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.PlantDao
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.PlantDatabase
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.userdb.UserDao
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.userdb.UserDatabase
+import br.com.rocketseat.nextlevelweek.plantmanager.repositories.PlantDbRepository
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.PlantManagerRepository
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.UserDbRepository
 import dagger.Provides
@@ -73,4 +76,20 @@ object PlantManagerModule {
     @Provides
     fun providerUserDbRepository(userDao: UserDao): UserDbRepository = UserDbRepository(userDao)
 
+    @Singleton
+    @Provides
+    fun providerPlantRoom(@ApplicationContext context: Context): PlantDatabase =
+        Room.databaseBuilder(
+            context,
+            PlantDatabase::class.java,
+            "plants_db.db"
+        ).build()
+
+    @Singleton
+    @Provides
+    fun providerPlantDao(plantDatabase: PlantDatabase): PlantDao = plantDatabase.plantDao()
+
+    @Singleton
+    @Provides
+    fun providerPlantDbRepository(plantDao: PlantDao): PlantDbRepository = PlantDbRepository(plantDao)
 }

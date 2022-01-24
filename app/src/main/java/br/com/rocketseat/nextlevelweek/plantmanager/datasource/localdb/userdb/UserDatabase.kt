@@ -1,4 +1,4 @@
-package br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb
+package br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.userdb
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

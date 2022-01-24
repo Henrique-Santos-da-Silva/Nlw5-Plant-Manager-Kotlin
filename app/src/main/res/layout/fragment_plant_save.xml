@@ -87,6 +87,7 @@
             app:layout_constraintTop_toBottomOf="@id/txt_choice_best_time" />
 
         <Button
+            android:id="@+id/btn_save_favorite_plant"
             style="@style/PlantManagerButtonStyle"
             android:text="@string/register_plant"
             android:layout_marginBottom="16dp"
