@@ -4,14 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/green"
-    android:gravity="center"
+    android:paddingVertical="16dp"
     tools:context=".views.fragments.MyPlantsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
+    <include layout="@layout/card_water_tips" />
 
+    <TextView
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/next_watering"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        style="@style/PlantManagerTextViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorite_plant"
+        android:layout_margin="16dp"
+        android:layout_width="match_parent"
+        tools:listitem="@layout/item_favorite_plant"
+        android:layout_height="match_parent" />
 </LinearLayout>

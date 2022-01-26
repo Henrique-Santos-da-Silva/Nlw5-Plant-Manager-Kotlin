@@ -20,4 +20,9 @@
     <string name="my_plants_header">Minhas\n<b>Plantinhas</b></string>
     <string name="choice_best_time">Escolha o melhor horário para ser lembrado:</string>
     <string name="register_plant">Cadastrar planta</string>
+    <string name="water_timer">Regar ás\n&#160;&#160;&#160;&#160;%1$d:%2$d</string>
+    <string name="next_watering">Próxima Regada</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Deletar</string>
+    <string name="delete_confirm">Deseja mesmo deletar sua\n%1$s?</string>
 </resources>

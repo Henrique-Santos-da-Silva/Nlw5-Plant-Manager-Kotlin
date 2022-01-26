@@ -36,6 +36,9 @@
         <action
             android:id="@+id/action_plantManagerTabLayoutFragment_to_plantSaveFragment"
             app:destination="@id/plantSaveFragment" />
+        <action
+            android:id="@+id/action_plantManagerTabLayoutFragment_to_deleteConfirmDialog"
+            app:destination="@id/deleteConfirmDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/plantSaveFragment"
@@ -48,5 +51,14 @@
             android:name="plantModel"
             app:argType="br.com.rocketseat.nextlevelweek.plantmanager.models.Plant" />
     </fragment>
+
+    <dialog
+        android:id="@+id/deleteConfirmDialogFragment"
+        android:name="br.com.rocketseat.nextlevelweek.plantmanager.views.fragments.DeleteConfirmDialogFragment"
+        tools:layout="@layout/dialog_delete" >
+        <argument
+            android:name="plantToDelete"
+            app:argType="br.com.rocketseat.nextlevelweek.plantmanager.models.Plant" />
+    </dialog>
 
 </navigation>

@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PlantDbViewModel @Inject constructor(private val plantDbRepository: PlantDbRepository): ViewModel() {
+class PlantDbViewModel @Inject constructor(private val plantDbRepository: PlantDbRepository) : ViewModel() {
 
     fun addPlantInFavorites(plant: Plant) {
         viewModelScope.launch {
@@ -22,7 +22,7 @@ class PlantDbViewModel @Inject constructor(private val plantDbRepository: PlantD
 
     fun getPlantFavorite(id: Int): LiveData<Plant> = plantDbRepository.getFavoritePlant(id)
 
-    suspend fun deletePlantFavorite(plant: Plant) {
+    fun deletePlantFavorite(plant: Plant) {
         viewModelScope.launch {
             plantDbRepository.deleteFavoritePlant(plant)
         }
