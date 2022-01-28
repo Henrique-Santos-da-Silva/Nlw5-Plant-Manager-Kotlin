@@ -67,7 +67,6 @@ class PlantSelectFragment : Fragment() {
 
 //        binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, userName)
 
-
         binding?.rvPlantSelect?.layoutManager = StaggeredGridLayoutManager(2, LinearLayout.VERTICAL)
         binding?.rvPlantSelect?.adapter = plantAdapter
 
@@ -77,6 +76,7 @@ class PlantSelectFragment : Fragment() {
                     response.data?.let { plantEnvironment ->
                         plantEnvironment.forEach { plantKeyValue ->
                             addChip(plantKeyValue)
+                            binding?.lottieLoadingAnimationView?.visibility = View.GONE
                         }
 
                     }
@@ -87,7 +87,7 @@ class PlantSelectFragment : Fragment() {
                     }
                 }
                 is Resource.Loading -> {
-
+                    binding?.lottieLoadingAnimationView?.visibility = View.VISIBLE
                 }
             }
         })
@@ -97,6 +97,7 @@ class PlantSelectFragment : Fragment() {
                 is Resource.Success -> {
                     response.data?.let { plantList ->
                         plantAdapter.submitList(plantList)
+                        binding?.lottieLoadingAnimationView?.visibility = View.GONE
                     }
                 }
                 is Resource.Error -> {
@@ -105,8 +106,11 @@ class PlantSelectFragment : Fragment() {
                     }
                 }
 
-                is Resource.Loading -> {}
+                is Resource.Loading -> {
+                    binding?.lottieLoadingAnimationView?.visibility = View.VISIBLE
+                }
             }
+
         })
 
     }

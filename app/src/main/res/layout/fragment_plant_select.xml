@@ -28,6 +28,18 @@
             android:layout_height="wrap_content" />
     </HorizontalScrollView>
 
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_loading_animation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/load"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
