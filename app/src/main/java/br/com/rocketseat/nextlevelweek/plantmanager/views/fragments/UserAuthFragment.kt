@@ -12,13 +12,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentUserAuthBinding
-import br.com.rocketseat.nextlevelweek.plantmanager.hideBackButtonToBar
-import br.com.rocketseat.nextlevelweek.plantmanager.hideSoftKeyboard
-import br.com.rocketseat.nextlevelweek.plantmanager.models.User
+import br.com.rocketseat.nextlevelweek.plantmanager.utils.hideBackButtonToBar
+import br.com.rocketseat.nextlevelweek.plantmanager.utils.hideSoftKeyboard
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
@@ -51,9 +49,9 @@ class UserAuthFragment : Fragment() {
             userAuthBinding.btnConfirm.setOnClickListener {
                 val inputUserName: String = userAuthBinding.edtName.text.toString()
 
-                val userName = User(null, inputUserName)
+//                val userName = User(null, inputUserName)
 
-                userViewModel.insertUser(userName)
+                userViewModel.insertUser(inputUserName)
 
 //                val actionUserAuthToPlantSelect: NavDirections = UserAuthFragmentDirections.actionUserAuthFragmentToReadyToStartFragment(inputUserName)
 

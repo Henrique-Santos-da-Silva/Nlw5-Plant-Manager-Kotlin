@@ -1,7 +1,6 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,23 +8,15 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import androidx.viewpager2.widget.ViewPager2
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentPlantSelectBinding
 import br.com.rocketseat.nextlevelweek.plantmanager.models.PlantKeyValue
-import br.com.rocketseat.nextlevelweek.plantmanager.models.User
 import br.com.rocketseat.nextlevelweek.plantmanager.utils.Resource
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantViewModel
-import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.UserViewModel
 import br.com.rocketseat.nextlevelweek.plantmanager.views.adapters.PlantSelectAdapter
-import br.com.rocketseat.nextlevelweek.plantmanager.views.adapters.PlantTabLayoutAdapter
 import com.google.android.material.chip.Chip
-import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
 

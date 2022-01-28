@@ -5,8 +5,6 @@ import androidx.room.Room
 import br.com.rocketseat.nextlevelweek.plantmanager.api.PlantApi
 import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.PlantDao
 import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.PlantDatabase
-import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.userdb.UserDao
-import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.userdb.UserDatabase
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.PlantDbRepository
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.PlantManagerRepository
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.UserDbRepository
@@ -61,20 +59,7 @@ object PlantManagerModule {
 
     @Singleton
     @Provides
-    fun providerRoomDatabase(@ApplicationContext context: Context): UserDatabase =
-        Room.databaseBuilder(
-            context,
-            UserDatabase::class.java,
-            "users_db.db"
-        ).build()
-
-    @Singleton
-    @Provides
-    fun providerUserDao(userDatabase: UserDatabase): UserDao = userDatabase.userDao()
-
-    @Singleton
-    @Provides
-    fun providerUserDbRepository(userDao: UserDao): UserDbRepository = UserDbRepository(userDao)
+    fun providerUserDbRepository(@ApplicationContext context: Context): UserDbRepository = UserDbRepository(context)
 
     @Singleton
     @Provides

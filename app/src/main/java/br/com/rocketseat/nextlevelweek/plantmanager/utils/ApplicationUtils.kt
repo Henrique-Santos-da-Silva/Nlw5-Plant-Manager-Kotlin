@@ -1,9 +1,12 @@
-package br.com.rocketseat.nextlevelweek.plantmanager
+package br.com.rocketseat.nextlevelweek.plantmanager.utils
 
 import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 
 fun Context.hideSoftKeyboard(view: View) {
@@ -21,3 +24,6 @@ fun AppCompatActivity.hideBackButtonToBar() {
         actionBar.setHomeButtonEnabled(false)
     }
 }
+
+// DataStore Settings
+val Context.dataStoreInstance: DataStore<Preferences> by preferencesDataStore(name = "users")

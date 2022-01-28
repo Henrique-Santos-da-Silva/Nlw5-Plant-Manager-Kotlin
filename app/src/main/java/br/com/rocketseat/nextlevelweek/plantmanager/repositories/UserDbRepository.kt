@@ -1,15 +1,27 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.repositories
 
-import androidx.lifecycle.LiveData
-import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.userdb.UserDao
-import br.com.rocketseat.nextlevelweek.plantmanager.models.User
+import android.content.Context
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.edit
+import androidx.datastore.preferences.core.stringPreferencesKey
+import br.com.rocketseat.nextlevelweek.plantmanager.utils.dataStoreInstance
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
-class UserDbRepository @Inject constructor(private val userDao: UserDao) {
+class UserDbRepository @Inject constructor(private val context: Context) {
 
-    suspend fun insertUser(user: User): Long = userDao.insertUser(user)
+    suspend fun insertUser(key: String, value: String) {
+        val preferencesKey: Preferences.Key<String> = stringPreferencesKey(key)
+        context.dataStoreInstance.edit { preferences ->
+            preferences[preferencesKey] = value
 
-    fun getLastUserRecord(): LiveData<User> = userDao.getLastUserRecord()
+        }
+    }
 
-    suspend fun deleteUser(user: User): Unit = userDao.deleteUser(user)
+    suspend fun getUser(key: String): String? {
+        val preferencesKey: Preferences.Key<String> = stringPreferencesKey(key)
+        val preferences: Preferences = context.dataStoreInstance.data.first()
+        return preferences[preferencesKey]
+    }
+
 }

@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentReadyToStartBinding
-import br.com.rocketseat.nextlevelweek.plantmanager.hideBackButtonToBar
+import br.com.rocketseat.nextlevelweek.plantmanager.utils.hideBackButtonToBar
 
 class ReadyToStartFragment : Fragment() {
     private var _binding: FragmentReadyToStartBinding? = null
