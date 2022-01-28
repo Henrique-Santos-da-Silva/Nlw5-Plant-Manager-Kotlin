@@ -1,6 +1,7 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentPlantSelectBinding
+import br.com.rocketseat.nextlevelweek.plantmanager.models.PlantKeyValue
 import br.com.rocketseat.nextlevelweek.plantmanager.models.User
 import br.com.rocketseat.nextlevelweek.plantmanager.utils.Resource
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantViewModel
@@ -41,11 +43,11 @@ class PlantSelectFragment : Fragment() {
 
 //    private val userViewModel: UserViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        tabLayoutSetup()
-        plantViewModel.getPlants()
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+////        tabLayoutSetup()
+//        plantViewModel.getPlants()
+//    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentPlantSelectBinding.inflate(inflater, container, false)
@@ -73,8 +75,8 @@ class PlantSelectFragment : Fragment() {
             when (response) {
                 is Resource.Success -> {
                     response.data?.let { plantEnvironment ->
-                        plantEnvironment.forEach {
-                            addChip(it.title)
+                        plantEnvironment.forEach { plantKeyValue ->
+                            addChip(plantKeyValue)
                         }
 
                     }
@@ -91,7 +93,7 @@ class PlantSelectFragment : Fragment() {
         })
 
         plantViewModel.listPlants.observe(viewLifecycleOwner, Observer { response ->
-            when(response) {
+            when (response) {
                 is Resource.Success -> {
                     response.data?.let { plantList ->
                         plantAdapter.submitList(plantList)
@@ -109,12 +111,20 @@ class PlantSelectFragment : Fragment() {
 
     }
 
-    private fun addChip(text: String) {
+    private fun addChip(plantEnvironment: PlantKeyValue) {
         val chip = layoutInflater.inflate(R.layout.home_rooms_chip_choice_filter, null, false) as Chip
-        chip.text = text
+        chip.text = plantEnvironment.title
         chip.isCloseIconVisible = false
 
 //        chip.layout = LayoutInflater.from(requireContext()).inflate(R.layout.home_rooms_chip_choice_filter, null, false) as Chip
+
+        chip.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                plantViewModel.getPlants(plantEnvironment.key)
+            } else {
+                plantViewModel.getPlants(null)
+            }
+        }
 
 //        chip.setOnClickListener {
 //            if (chip.isChecked) {

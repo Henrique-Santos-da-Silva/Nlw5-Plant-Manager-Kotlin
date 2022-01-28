@@ -13,5 +13,5 @@ class PlantManagerRepository @Inject constructor(private val plantApi: PlantApi)
 
     suspend fun getPlantsWaterFrequencies(): Response<List<PlantWaterFrequency>> = plantApi.getPlantsWaterFrequencies()
 
-    suspend fun getPlants(): Response<List<Plant>> = plantApi.getAllPlants()
+    suspend fun getPlants(plantEnvironment: String?): Response<List<Plant>> = plantApi.getAllPlants(plantEnvironment = plantEnvironment)
 }

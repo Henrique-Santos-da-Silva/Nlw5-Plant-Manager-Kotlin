@@ -23,6 +23,7 @@ class PlantViewModel @Inject constructor(private val plantRepository: PlantManag
 
     init {
         getPlantsEnvironment()
+        getPlants(null)
     }
 
     private fun getPlantsEnvironment() {
@@ -33,10 +34,10 @@ class PlantViewModel @Inject constructor(private val plantRepository: PlantManag
         }
     }
 
-    fun getPlants() {
+    fun getPlants(plantEnvironment: String?) {
         viewModelScope.launch {
             listPlants.postValue(Resource.Loading())
-            val plantResponse = plantRepository.getPlants()
+            val plantResponse = plantRepository.getPlants(plantEnvironment)
             listPlants.postValue(handlePlantsResponse(plantResponse))
         }
     }
