@@ -3,18 +3,18 @@ package br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import org.joda.time.LocalDateTime
 import java.lang.reflect.Type
 
-class EnvironmentDbConverter {
-
+class TimeToWaterDbConverter {
+    
     @TypeConverter
-    fun fromString(value: String?): List<String> {
-        val listType: Type = object: TypeToken<List<String>>(){}.type
-        return Gson().fromJson(value, listType)
+    fun toLocalTime(timeToWater: LocalDateTime?): String? {
+        return timeToWater?.toString()
     }
 
     @TypeConverter
-    fun toListString(list: List<String?>): String {
-        return Gson().toJson(list)
+    fun fromString(stringValue: String?): LocalDateTime? {
+        return stringValue?.let { LocalDateTime(it) }
     }
 }

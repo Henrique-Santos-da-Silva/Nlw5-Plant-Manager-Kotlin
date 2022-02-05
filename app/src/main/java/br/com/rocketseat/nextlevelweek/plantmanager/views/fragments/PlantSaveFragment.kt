@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -19,6 +18,8 @@ import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantDbViewModel
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
+import org.joda.time.LocalDateTime
+import java.util.*
 
 @AndroidEntryPoint
 @FragmentScoped
@@ -64,11 +65,19 @@ class PlantSaveFragment : Fragment() {
                 psBinding.btnSaveFavoritePlant.setOnClickListener {
                     timePickerSetup()
 
-                    plant.hours = hour ?: 0
-                    plant.minutes = minutes ?: 0
+                    val calendarHourAndMinutes: Calendar = Calendar.getInstance().apply {
+                        set(Calendar.HOUR_OF_DAY, hour!!)
+                        set(Calendar.MINUTE, minutes!!)
+                    }
 
-                    plantDbViewModel.addPlantInFavorites(plant)
-                    findNavController().navigate(R.id.action_plantSaveFragment_to_plantManagerTabLayoutFragment)
+                    if (calendarHourAndMinutes.before(GregorianCalendar.getInstance())) {
+                        Toast.makeText(requireContext(), "Esse Horario já passou 😥", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val convertCalendarTimeToWater = LocalDateTime(calendarHourAndMinutes)
+                        plant.timeToWater = convertCalendarTimeToWater
+                        plantDbViewModel.addPlantInFavorites(plant)
+                        findNavController().navigate(R.id.action_plantSaveFragment_to_plantManagerTabLayoutFragment)
+                    }
                 }
             }
         }

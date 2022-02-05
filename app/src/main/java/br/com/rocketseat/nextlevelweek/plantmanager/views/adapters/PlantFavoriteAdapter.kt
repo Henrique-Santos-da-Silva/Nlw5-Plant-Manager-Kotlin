@@ -16,14 +16,21 @@ import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 
 class PlantFavoriteAdapter : ListAdapter<Plant, PlantFavoriteAdapter.PlantFavoriteViewHolder>(PlantFavoriteDiffCallBack()) {
 
-    inner class PlantFavoriteViewHolder(private val binding: ItemFavoritePlantBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class PlantFavoriteViewHolder(private val binding: ItemFavoritePlantBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(plant: Plant) {
             with(binding) {
                 val photoUrl: Uri = Uri.parse(plant.photo)
                 GlideToVectorYou.init().with(itemView.context).load(photoUrl, imgAvatarPlant)
 
                 txtPlantName.text = plant.name
-                txtWaterTimer.text = itemView.resources.getString(R.string.water_timer, plant.hours, plant.minutes)
+
+
+                val hours: Int = plant.timeToWater.hourOfDay
+                val minutes: Int = plant.timeToWater.minuteOfHour
+
+                val completeTime = "$hours : $minutes"
+
+                txtWaterTimer.text = itemView.resources.getString(R.string.water_timer, completeTime)
 
                 itemView.setOnClickListener { view ->
                     val tabLayoutFragmentAction: NavDirections = PlantManagerTabLayoutFragmentDirections.actionPlantManagerTabLayoutFragmentToPlantSaveFragment(plant)
@@ -44,7 +51,7 @@ class PlantFavoriteAdapter : ListAdapter<Plant, PlantFavoriteAdapter.PlantFavori
     }
 }
 
-class PlantFavoriteDiffCallBack: DiffUtil.ItemCallback<Plant>() {
+class PlantFavoriteDiffCallBack : DiffUtil.ItemCallback<Plant>() {
     override fun areItemsTheSame(oldItem: Plant, newItem: Plant): Boolean = oldItem.id == newItem.id
 
     override fun areContentsTheSame(oldItem: Plant, newItem: Plant): Boolean = oldItem == newItem

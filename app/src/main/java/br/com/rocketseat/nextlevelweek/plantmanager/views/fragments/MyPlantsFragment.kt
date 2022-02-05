@@ -2,7 +2,6 @@ package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
 import android.graphics.Canvas
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +23,7 @@ import br.com.rocketseat.nextlevelweek.plantmanager.views.adapters.PlantFavorite
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
+import org.joda.time.Hours
 
 @AndroidEntryPoint
 @FragmentScoped
@@ -48,6 +48,14 @@ class MyPlantsFragment : Fragment() {
         val readFavoritesPlants: LiveData<List<Plant>> = plantDbViewModel.readFavoritesPlants()
 
         readFavoritesPlants.observe(viewLifecycleOwner, Observer { favoritesPlants ->
+            if (favoritesPlants.isNullOrEmpty()) {
+                return@Observer
+            }
+
+            val timeDistance: Int = reminderForNextWatering(favoritesPlants[0].timeToWater)
+
+            binding?.cardWaterTips?.txtWaterTips?.text = getString(R.string.next_watered, favoritesPlants[0].name, timeDistance)
+
             favoritePlantAdapter.submitList(favoritesPlants)
         })
 
@@ -85,5 +93,16 @@ class MyPlantsFragment : Fragment() {
 
         val itemTouchHelper = ItemTouchHelper(swipeHandler)
         itemTouchHelper.attachToRecyclerView(binding?.rvFavoritePlant)
+    }
+
+    private fun reminderForNextWatering(plantTimeSaved: org.joda.time.LocalDateTime): Int {
+        val currentDeviceDateTime: org.joda.time.LocalDateTime = org.joda.time.LocalDateTime.now()
+
+        val hoursBetween: Int = if (plantTimeSaved.toLocalTime().isBefore(currentDeviceDateTime.toLocalTime())) {
+            Hours.hoursBetween(currentDeviceDateTime, plantTimeSaved.plusDays(1).plusHours(1)).hours
+        } else {
+            Hours.hoursBetween(currentDeviceDateTime, plantTimeSaved.plusHours(1)).hours
+        }
+        return hoursBetween
     }
 }
