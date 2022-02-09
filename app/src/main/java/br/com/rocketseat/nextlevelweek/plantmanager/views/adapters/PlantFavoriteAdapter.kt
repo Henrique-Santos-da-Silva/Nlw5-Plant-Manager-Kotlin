@@ -32,10 +32,10 @@ class PlantFavoriteAdapter : ListAdapter<Plant, PlantFavoriteAdapter.PlantFavori
 
                 txtWaterTimer.text = itemView.resources.getString(R.string.water_timer, completeTime)
 
-                itemView.setOnClickListener { view ->
-                    val tabLayoutFragmentAction: NavDirections = PlantManagerTabLayoutFragmentDirections.actionPlantManagerTabLayoutFragmentToPlantSaveFragment(plant)
-                    view.findNavController().navigate(tabLayoutFragmentAction)
-                }
+//                itemView.setOnClickListener { view ->
+//                    val tabLayoutFragmentAction: NavDirections = PlantManagerTabLayoutFragmentDirections.actionPlantManagerTabLayoutFragmentToPlantSaveFragment(plant)
+//                    view.findNavController().navigate(tabLayoutFragmentAction)
+//                }
             }
         }
     }

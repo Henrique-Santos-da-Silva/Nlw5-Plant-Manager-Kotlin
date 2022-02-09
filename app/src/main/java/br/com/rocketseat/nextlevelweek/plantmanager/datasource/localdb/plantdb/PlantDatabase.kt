@@ -8,7 +8,7 @@ import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.d
 import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.dbtypesconverters.WaterFrequencyDbConverters
 import br.com.rocketseat.nextlevelweek.plantmanager.models.Plant
 
-@Database(entities = [Plant::class], version = 2)
+@Database(entities = [Plant::class], version = 3)
 @TypeConverters(value = [WaterFrequencyDbConverters::class, EnvironmentDbConverter::class, TimeToWaterDbConverter::class])
 abstract class PlantDatabase: RoomDatabase() {
 

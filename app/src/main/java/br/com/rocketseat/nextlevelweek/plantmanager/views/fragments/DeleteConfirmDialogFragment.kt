@@ -1,5 +1,9 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +16,7 @@ import androidx.navigation.fragment.navArgs
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.DialogDeleteBinding
 import br.com.rocketseat.nextlevelweek.plantmanager.models.Plant
+import br.com.rocketseat.nextlevelweek.plantmanager.services.WaterPlantNotification
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantDbViewModel
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,6 +51,7 @@ class DeleteConfirmDialogFragment : DialogFragment() {
                 txtConfirmDelete.text = getString(R.string.delete_confirm, plant.name)
 
                 btnDialogConfirm.setOnClickListener {
+                    plantNotificationCancel(plant.notificationId)
                     plantDbViewModel.deletePlantFavorite(plant)
                     dismiss()
                 }
@@ -61,5 +67,16 @@ class DeleteConfirmDialogFragment : DialogFragment() {
     override fun onStart() {
         super.onStart()
         dialog?.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
+    }
+
+    private fun plantNotificationCancel(plantDbId: Long) {
+        val alarmManager = activity?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val plantNotificationIntent = Intent(activity?.applicationContext, WaterPlantNotification::class.java)
+
+        plantNotificationIntent.apply { getLongExtra(WaterPlantNotification.PLANT_KEY_NOTIFICATION_ID, plantDbId) }
+
+        val broadcast: PendingIntent = PendingIntent.getBroadcast(activity?.applicationContext, 0, plantNotificationIntent, PendingIntent.FLAG_CANCEL_CURRENT)
+
+        alarmManager.cancel(broadcast)
     }
 }

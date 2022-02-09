@@ -17,5 +17,6 @@ data class Plant(
     val environments: List<String>,
     val frequency: PlantWaterFrequency,
 
-    var timeToWater: org.joda.time.LocalDateTime
+    var timeToWater: org.joda.time.LocalDateTime,
+    var notificationId: Long
 ) : Serializable

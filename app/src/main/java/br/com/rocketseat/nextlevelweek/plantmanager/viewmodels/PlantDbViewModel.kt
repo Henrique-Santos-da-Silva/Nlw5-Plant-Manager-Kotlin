@@ -7,6 +7,7 @@ import br.com.rocketseat.nextlevelweek.plantmanager.models.Plant
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.PlantDbRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
@@ -21,6 +22,10 @@ class PlantDbViewModel @Inject constructor(private val plantDbRepository: PlantD
     fun readFavoritesPlants(): LiveData<List<Plant>> = plantDbRepository.getFavoritesPlants()
 
     fun getPlantFavorite(id: Int): LiveData<Plant> = plantDbRepository.getFavoritePlant(id)
+
+    fun getLastNotificationId(): Long = runBlocking {
+        plantDbRepository.getLastNotificationId()
+    }
 
     fun deletePlantFavorite(plant: Plant) {
         viewModelScope.launch {

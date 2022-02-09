@@ -3,6 +3,7 @@ package br.com.rocketseat.nextlevelweek.plantmanager.di
 import android.content.Context
 import androidx.room.Room
 import br.com.rocketseat.nextlevelweek.plantmanager.api.PlantApi
+import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.migrations.PlantAppDbMigrations
 import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.PlantDao
 import br.com.rocketseat.nextlevelweek.plantmanager.datasource.localdb.plantdb.PlantDatabase
 import br.com.rocketseat.nextlevelweek.plantmanager.repositories.PlantDbRepository
@@ -68,7 +69,7 @@ object PlantManagerModule {
             context,
             PlantDatabase::class.java,
             "plants_db.db"
-        ).build()
+        ).addMigrations(PlantAppDbMigrations.migration2To3).build()
 
     @Singleton
     @Provides
