@@ -27,7 +27,7 @@
 - [Dagger Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 - [LottieFiles](https://lottiefiles.com/)
 - [Joda Time](https://www.joda.org/joda-time/)
-- [Broadcast Receiver]([Broadcasts overview  | Android Developers](https://developer.android.com/guide/components/broadcasts))
+- [Broadcast Receiver](https://developer.android.com/guide/components/broadcasts))
 - [Notification](https://developer.android.com/training/notify-user/build-notification)
 
 ##  Layout
