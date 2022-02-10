@@ -14,7 +14,6 @@ class UserDbRepository @Inject constructor(private val context: Context) {
         val preferencesKey: Preferences.Key<String> = stringPreferencesKey(key)
         context.dataStoreInstance.edit { preferences ->
             preferences[preferencesKey] = value
-
         }
     }
 
@@ -23,5 +22,4 @@ class UserDbRepository @Inject constructor(private val context: Context) {
         val preferences: Preferences = context.dataStoreInstance.data.first()
         return preferences[preferencesKey]
     }
-
 }

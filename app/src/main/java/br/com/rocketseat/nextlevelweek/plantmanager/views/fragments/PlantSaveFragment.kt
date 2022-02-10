@@ -152,10 +152,9 @@ class PlantSaveFragment : Fragment() {
         if (repeatEvery == "week") {
             val interval: Double = floor(7 / times.toDouble())
             calendarDateTime.set(Calendar.DAY_OF_MONTH, currentDateTime.dayOfMonth + interval.toInt())
-        }/* else {
+        } else {
             calendarDateTime.add(Calendar.DATE, 1);
-        }*/
-
+        }
 
         alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendarDateTime.timeInMillis, broadcast)
     }

@@ -21,8 +21,6 @@ class PlantDbViewModel @Inject constructor(private val plantDbRepository: PlantD
 
     fun readFavoritesPlants(): LiveData<List<Plant>> = plantDbRepository.getFavoritesPlants()
 
-    fun getPlantFavorite(id: Int): LiveData<Plant> = plantDbRepository.getFavoritePlant(id)
-
     fun getLastNotificationId(): Long = runBlocking {
         plantDbRepository.getLastNotificationId()
     }

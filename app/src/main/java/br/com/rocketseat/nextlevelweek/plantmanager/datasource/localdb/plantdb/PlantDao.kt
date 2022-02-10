@@ -16,7 +16,6 @@ interface PlantDao {
     @Query("SELECT * FROM plant WHERE plantId = :id")
     fun getFavoritePlant(id: Int): LiveData<Plant>
 
-    // SELECT * FROM plant  ORDER BY id DESC LIMIT 1 -> Pegar a ultima notification id
     @Query("SELECT notificationId FROM plant ORDER BY notificationId DESC LIMIT 1")
     suspend fun getLastNotificationId(): Long
 

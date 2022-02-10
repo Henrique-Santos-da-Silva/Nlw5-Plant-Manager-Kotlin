@@ -65,7 +65,5 @@ class WaterPlantNotification : BroadcastReceiver() {
 
         const val PLANT_KEY_NOTIFICATION = "plant_key_notification"
         const val PLANT_KEY_NOTIFICATION_ID = "plant_key_notification_id"
-        const val FRAGMENT_ID = "fragment_id"
-        const val FRAGMENT_NAME = "fragment_name"
     }
 }

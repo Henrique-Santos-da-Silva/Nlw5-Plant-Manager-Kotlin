@@ -21,7 +21,6 @@ import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantDbViewModel
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.scopes.FragmentScoped
-import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 @AndroidEntryPoint
 @FragmentScoped

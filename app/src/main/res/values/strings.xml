@@ -1,9 +1,7 @@
 <resources>
-    <string name="app_name">PlantManager</string>
+    <string name="app_name">Plant Manager</string>
     <string name="welcome_app_title">Gerencie\nsuas plantas de\nforma fácil</string>
     <string name="welcome_app_description">Não esqueça mais de regar suas\nplantas. Nós cuidamos de lembrar você\nsempre que precisar.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="happy_emoji_open_eyes">😃</string>
     <string name="happy_emoji_close_eyes">😄</string>
     <string name="what_is_your_name">Como podemos\nchamar você?</string>
