@@ -1,6 +1,7 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +30,6 @@ class PlantManagerTabLayoutFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         (activity as AppCompatActivity).hideBackButtonToBar()
     }
 
@@ -46,6 +46,15 @@ class PlantManagerTabLayoutFragment : Fragment() {
         binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, userViewModel.getUser())
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).hideBackButtonToBar()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (activity as AppCompatActivity).hideBackButtonToBar()
+    }
 
     private fun tabLayoutSetup() {
         val tabLayout: TabLayout = binding?.tblMenu as TabLayout
@@ -71,10 +80,7 @@ class PlantManagerTabLayoutFragment : Fragment() {
 
         })
 
-
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-//            val color = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(R.color.green, BlendModeCompat.SRC_IN)
-//            tab.icon?.colorFilter = color
             tab.icon = ContextCompat.getDrawable(requireContext(), tabLayoutAdapter.tabsIcons[position])
             tab.text = getString(tabLayoutAdapter.tabsNames[position])
 

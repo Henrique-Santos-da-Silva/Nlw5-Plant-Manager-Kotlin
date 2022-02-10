@@ -28,17 +28,7 @@ class PlantSelectFragment : Fragment() {
     private val binding: FragmentPlantSelectBinding? get() = _binding
     private val plantAdapter: PlantSelectAdapter = PlantSelectAdapter()
 
-//    private val plantSelectArgs: PlantSelectFragmentArgs by navArgs()
-
     private val plantViewModel: PlantViewModel by viewModels()
-
-//    private val userViewModel: UserViewModel by viewModels()
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-////        tabLayoutSetup()
-//        plantViewModel.getPlants()
-//    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentPlantSelectBinding.inflate(inflater, container, false)
@@ -47,16 +37,6 @@ class PlantSelectFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        val userName: String = plantSelectArgs.userNameArgs
-
-//        val lastUserRecord: LiveData<User> = userViewModel.getLastUserRecord()
-//
-//        lastUserRecord.observe(viewLifecycleOwner, Observer { user ->
-//            binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, user.userName)
-//        })
-
-//        binding?.greetingHeader?.txtGreetingUser?.text = getString(R.string.greeting_user, userName)
 
         binding?.rvPlantSelect?.layoutManager = StaggeredGridLayoutManager(2, LinearLayout.VERTICAL)
         binding?.rvPlantSelect?.adapter = plantAdapter
@@ -103,15 +83,12 @@ class PlantSelectFragment : Fragment() {
             }
 
         })
-
     }
 
     private fun addChip(plantEnvironment: PlantKeyValue) {
         val chip = layoutInflater.inflate(R.layout.home_rooms_chip_choice_filter, null, false) as Chip
         chip.text = plantEnvironment.title
         chip.isCloseIconVisible = false
-
-//        chip.layout = LayoutInflater.from(requireContext()).inflate(R.layout.home_rooms_chip_choice_filter, null, false) as Chip
 
         chip.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
@@ -121,21 +98,6 @@ class PlantSelectFragment : Fragment() {
             }
         }
 
-//        chip.setOnClickListener {
-//            if (chip.isChecked) {
-//                chip.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.green))
-//                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.dark_green))
-//            } else {
-//                chip.setBackgroundColor(ContextCompat.getColor(requireContext(), android.R.color.darker_gray))
-//                chip.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-//            }
-//        }
-
-
-//        chip.setBackgroundColor()
-
         binding?.chipGroupHouseRooms?.addView(chip)
     }
-
-
 }

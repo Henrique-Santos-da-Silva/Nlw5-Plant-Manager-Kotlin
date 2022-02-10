@@ -15,8 +15,6 @@ class ReadyToStartFragment : Fragment() {
     private var _binding: FragmentReadyToStartBinding? = null
     private val binding: FragmentReadyToStartBinding? get() = _binding
 
-//    private val readyToStartNav: ReadyToStartFragmentArgs by navArgs()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -32,9 +30,6 @@ class ReadyToStartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.btnStart?.setOnClickListener {
-//            val userName: String = readyToStartNav.userNameArgs2
-//            val actionReadyToStartToPlantSelect: NavDirections = ReadyToStartFragmentDirections.actionReadyToStartFragmentToPlantSelectFragment(userName)
-//            findNavController().navigate(actionReadyToStartToPlantSelect)
             findNavController().navigate(R.id.action_readyToStartFragment_to_plantManagerTabLayoutFragment)
         }
     }

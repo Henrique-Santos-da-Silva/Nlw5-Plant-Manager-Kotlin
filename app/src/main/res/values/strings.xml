@@ -26,4 +26,5 @@
     <string name="delete">Deletar</string>
     <string name="delete_confirm">Deseja mesmo deletar sua\n%1$s?</string>
     <string name="next_watered">Regue sua %1$s\ndaqui a %2$d horas.</string>
+    <string name="back_button_description_content">voltar</string>
 </resources>

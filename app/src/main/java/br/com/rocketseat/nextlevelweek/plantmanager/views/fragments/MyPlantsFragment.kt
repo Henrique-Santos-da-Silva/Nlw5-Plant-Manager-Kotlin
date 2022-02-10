@@ -1,9 +1,5 @@
 package br.com.rocketseat.nextlevelweek.plantmanager.views.fragments
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
 import android.graphics.Canvas
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.FragmentMyPlantsBinding
 import br.com.rocketseat.nextlevelweek.plantmanager.models.Plant
-import br.com.rocketseat.nextlevelweek.plantmanager.services.WaterPlantNotification
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantDbViewModel
 import br.com.rocketseat.nextlevelweek.plantmanager.views.adapters.PlantFavoriteAdapter
 import dagger.hilt.android.AndroidEntryPoint

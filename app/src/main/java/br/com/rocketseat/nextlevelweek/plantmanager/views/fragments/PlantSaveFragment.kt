@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -24,6 +25,7 @@ import br.com.rocketseat.nextlevelweek.plantmanager.models.PlantWaterFrequency
 import br.com.rocketseat.nextlevelweek.plantmanager.services.WaterPlantNotification
 import br.com.rocketseat.nextlevelweek.plantmanager.services.WaterPlantNotification.Companion.PLANT_KEY_NOTIFICATION
 import br.com.rocketseat.nextlevelweek.plantmanager.services.WaterPlantNotification.Companion.PLANT_KEY_NOTIFICATION_ID
+import br.com.rocketseat.nextlevelweek.plantmanager.utils.hideBackButtonToBar
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantDbViewModel
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,6 +51,7 @@ class PlantSaveFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         binding?.timePicker?.setIs24HourView(true)
+        (activity as AppCompatActivity).hideBackButtonToBar()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -74,6 +77,10 @@ class PlantSaveFragment : Fragment() {
                 txtPlantName.text = plant.name
                 txtPlantAbout.text = plant.about
                 cardWaterTips.txtWaterTips.text = plant.waterTips
+
+                psBinding.btnBack.setOnClickListener {
+                    requireActivity().onBackPressed()
+                }
 
                 psBinding.btnSaveFavoritePlant.setOnClickListener {
                     timePickerSetup()

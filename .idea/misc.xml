@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/drawable/bg_dialog_buttons.xml" value="0.39692307692307693" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/drawable/bg_welcome_button.xml" value="0.3888888888888889" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/drawable/ic_arrow_right.xml" value="0.39444444444444443" />
+        <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/drawable/ic_chevron_left.xml" value="0.39166666666666666" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/drawable/ic_plant.xml" value="0.39444444444444443" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/drawable/splash_logo.xml" value="0.3888888888888889" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/drawable/splash_screen_background.xml" value="0.3888888888888889" />
@@ -18,7 +19,7 @@
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_confirmation.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_my_plants.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_plant_manager_tab_layout.xml" value="0.38697916666666665" />
-        <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_plant_save.xml" value="0.25" />
+        <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_plant_save.xml" value="0.6" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_plant_select.xml" value="0.21510416666666668" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_ready_to_start.xml" value="0.264" />
         <entry key="..\:/Users/Henrique/Dev/Projetos-Android/PlantManager/app/src/main/res/layout/fragment_welcome.xml" value="0.25" />

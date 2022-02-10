@@ -49,22 +49,24 @@ class UserAuthFragment : Fragment() {
             userAuthBinding.btnConfirm.setOnClickListener {
                 val inputUserName: String = userAuthBinding.edtName.text.toString()
 
-//                val userName = User(null, inputUserName)
-
                 userViewModel.insertUser(inputUserName)
 
-//                val actionUserAuthToPlantSelect: NavDirections = UserAuthFragmentDirections.actionUserAuthFragmentToReadyToStartFragment(inputUserName)
-
                 hideSoftKeyboard()
-//                findNavController().navigate(actionUserAuthToPlantSelect)
+
                 findNavController().navigate(R.id.action_userAuthFragment_to_readyToStartFragment)
             }
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).hideBackButtonToBar()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         hideSoftKeyboard()
+        (activity as AppCompatActivity).hideBackButtonToBar()
     }
 
     private fun userAuthValidation(confirmButton: Button, editTextName: EditText, emoji: TextView) {
