@@ -1,6 +1,7 @@
 <div align="center">
 	<img src=".github/logo.png">
 </div>
+
 ## 💻Projeto / Project
 
 🇧🇷 O Plant Manager é um aplicativo que te auxilia a cuidar de suas plantas. O Aplicativo foi originalmente desenvolvido pela [Rocketseat](https://www.rocketseat.com.br/) no bootcamp Next Level Week 5ª Edição **(você pode acessar o projeto desse Bootcamp por esse [link](https://github.com/rocketseat-education/nlw-05-react-native))**,  usando [React Native](https://reactnative.dev/), mas reconstruído para Android Nativo usando Kotlin.
@@ -60,3 +61,5 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENÇA](LICENSE) para m
 🇺🇸
 
 This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
+	
+	
