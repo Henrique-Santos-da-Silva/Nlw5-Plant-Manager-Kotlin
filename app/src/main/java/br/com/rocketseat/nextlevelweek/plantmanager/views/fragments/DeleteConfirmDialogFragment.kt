@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -17,6 +18,7 @@ import br.com.rocketseat.nextlevelweek.plantmanager.R
 import br.com.rocketseat.nextlevelweek.plantmanager.databinding.DialogDeleteBinding
 import br.com.rocketseat.nextlevelweek.plantmanager.models.Plant
 import br.com.rocketseat.nextlevelweek.plantmanager.services.WaterPlantNotification
+import br.com.rocketseat.nextlevelweek.plantmanager.utils.hideBackButtonToBar
 import br.com.rocketseat.nextlevelweek.plantmanager.viewmodels.PlantDbViewModel
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import dagger.hilt.android.AndroidEntryPoint
@@ -66,6 +68,11 @@ class DeleteConfirmDialogFragment : DialogFragment() {
     override fun onStart() {
         super.onStart()
         dialog?.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as AppCompatActivity).hideBackButtonToBar()
     }
 
     private fun plantNotificationCancel(plantDbId: Long) {

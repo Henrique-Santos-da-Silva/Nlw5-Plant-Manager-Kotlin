@@ -17,7 +17,7 @@ interface PlantDao {
     fun getFavoritePlant(id: Int): LiveData<Plant>
 
     @Query("SELECT notificationId FROM plant ORDER BY notificationId DESC LIMIT 1")
-    suspend fun getLastNotificationId(): Long
+    suspend fun getLastNotificationId(): Long?
 
     @Delete
     suspend fun deleteFavoritePlant(plant: Plant)

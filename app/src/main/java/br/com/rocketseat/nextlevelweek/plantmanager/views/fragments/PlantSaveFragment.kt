@@ -96,7 +96,7 @@ class PlantSaveFragment : Fragment() {
                         val convertCalendarTimeToWater = LocalDateTime(calendarHourAndMinutes)
                         plant.timeToWater = convertCalendarTimeToWater
 
-                        val notificationId: Long = plantDbViewModel.getLastNotificationId()
+                        val notificationId: Long = plantDbViewModel.getLastNotificationId() ?: 0
                         plant.notificationId = notificationId.inc()
 
                         plantDbViewModel.addPlantInFavorites(plant)

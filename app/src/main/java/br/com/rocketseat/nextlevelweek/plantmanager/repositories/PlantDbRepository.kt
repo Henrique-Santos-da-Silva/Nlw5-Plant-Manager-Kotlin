@@ -13,7 +13,7 @@ class PlantDbRepository @Inject constructor(private val plantDao: PlantDao) {
 
     fun getFavoritePlant(id: Int): LiveData<Plant> = plantDao.getFavoritePlant(id)
 
-    suspend fun getLastNotificationId(): Long = plantDao.getLastNotificationId()
+    suspend fun getLastNotificationId(): Long? = plantDao.getLastNotificationId()
 
     suspend fun deleteFavoritePlant(plant: Plant): Unit = plantDao.deleteFavoritePlant(plant)
 }
